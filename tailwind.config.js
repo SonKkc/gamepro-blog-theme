@@ -13,6 +13,7 @@ export default {
         'primary': '#333B7C',
         'secondary': '#EF8041',
         'tertiary': '#333B7C',
+        'menu_desktop': '#FEFEFE',
         'menu_mobile': '#202020',
 
       },

@@ -2,30 +2,30 @@
   @apply w-full relative;
 
   img {
-    @apply w-full h-[242px] max-sm:h-[139px] object-cover;
+    @apply w-full h-[242px] sm:h-[139px] object-cover;
   }
   .__content {
     @apply absolute inset-0 flex flex-col items-center justify-center gap-4 text-white;
 
     h2 {
-      @apply text-[40px] leading-[40px] max-sm:text-[27px] max-sm:leading-[27px] text-center font-bold uppercase;
+      @apply text-[40px] leading-[40px] sm:text-[27px] sm:leading-[27px] text-center font-bold uppercase;
     }
 
     span {
-      @apply text-[48px] leading-[57px] max-sm:text-[36px] max-sm:leading-[43px] text-center font-extrabold capitalize;
+      @apply text-[48px] leading-[57px] sm:text-[36px] sm:leading-[43px] text-center font-extrabold capitalize;
     }
 
     p {
-      @apply text-[24px] leading-[24px] max-sm:text-[16px] max-sm:leading-[16px] text-center capitalize font-bold;
+      @apply text-[24px] leading-[24px] sm:text-[16px] sm:leading-[16px] text-center capitalize font-bold;
     }
   }
 }
 
 .top3 {
-  @apply flex max-sm:flex-col gap-5 items-center;
+  @apply flex sm:flex-col gap-5 items-center;
 
   .__item {
-    @apply w-[288px] h-[184px] max-sm:w-full rounded relative;
+    @apply w-[288px] h-[184px] sm:w-full rounded relative;
 
     img {
       @apply w-full h-full object-cover rounded;
@@ -37,6 +37,38 @@
       h2 {
         @apply text-[20px] leading-[24.2px] font-bold text-center;
       }
+
+      .__info{
+        @apply hidden;
+        span{
+          @apply text-[#FFFFFF] text-[10px] leading-[12px] font-normal;
+        }
+      }
+
+      svg{
+        @apply hidden;
+      }
+    }
+  }
+
+  .__item:hover{
+
+    img{
+      @apply filter blur-[2px];
+    }
+
+    .__content{
+      .__info{
+        @apply flex gap-4 items-center;
+      }
+
+      h2{
+        @apply text-[#DBFF00];
+      }
+
+      svg{
+        @apply block;
+      }
     }
   }
 }
@@ -44,9 +76,9 @@
 .most_view {
   .__left_content {
     .__list {
-      @apply grid grid-rows-2 grid-flow-col max-sm:grid-cols-1 max-sm:grid-flow-row gap-5 mt-6;
+      @apply grid grid-rows-2 grid-flow-col sm:grid-cols-1 sm:grid-flow-row gap-5 mt-6;
       .__item1 {
-        @apply row-span-2 max-sm:col-span-1 w-[390px] h-[563px] max-sm:w-full max-sm:h-[251px] relative rounded;
+        @apply row-span-2 sm:col-span-1 w-[390px] h-[563px] sm:w-full sm:h-[251px] relative rounded;
 
         img {
           @apply w-full h-full object-cover rounded;
@@ -56,11 +88,11 @@
           @apply absolute inset-x-0 bottom-0 p-6;
 
           img {
-            @apply w-full h-full object-cover max-sm:w-[288px] max-sm:h-[251px] rounded;
+            @apply w-full h-full object-cover sm:w-[288px] sm:h-[251px] rounded;
           }
 
           a {
-            @apply text-[32px] leading-[38.72px] max-xs2:text-[20px] max-xs2:leading-[24.2px] font-bold text-white;
+            @apply text-[32px] leading-[38.72px] sm:text-[20px] sm:leading-[24.2px] font-bold text-white;
           }
 
           .__info {
@@ -114,20 +146,20 @@
 .latest_reviews {
   .__left_content {
     .__list {
-      @apply grid grid-cols-3 max-sm:grid-cols-1 gap-5 mt-6;
+      @apply grid grid-cols-3 sm:grid-cols-1 gap-5 mt-6;
 
       .__item1 {
-        @apply col-span-3 max-sm:col-span-1 max-w-[595px] max-h-[335px] max-sm:max-w-full relative rounded;
+        @apply col-span-3 sm:col-span-1 max-w-[595px] max-h-[335px] sm:max-w-full relative rounded;
 
         img {
-          @apply w-full h-full object-cover rounded-md max-sm:w-full max-sm:h-[251px];
+          @apply w-full h-full object-cover rounded-md sm:w-full sm:h-[251px];
         }
 
         .__content {
           @apply absolute inset-x-0 bottom-0 p-6;
 
           a {
-            @apply text-[32px] leading-[38.72px] max-sm:text-[20px] max-sm:leading-[24.2px] font-bold text-white;
+            @apply text-[32px] leading-[38.72px] sm:text-[20px] sm:leading-[24.2px] font-bold text-white;
           }
 
           .__info {
@@ -148,7 +180,7 @@
         @apply grid-rows-1 w-full relative rounded;
 
         img {
-          @apply w-full h-[104px] max-sm:w-full max-sm:h-[185px] rounded;
+          @apply w-full h-[104px] sm:w-full sm:h-[185px] rounded;
         }
 
         .__content {
@@ -175,7 +207,7 @@
 }
 
 .console {
-  @apply grid grid-cols-3 max-sm:grid-cols-1 gap-5 mt-20 max-sm:mt-8;
+  @apply grid grid-cols-3 sm:grid-cols-1 gap-5 mt-20 sm:mt-8;
 
   .__list {
     @apply flex flex-col gap-2;
@@ -207,7 +239,7 @@
 }
 
 .worth_seeing {
-  @apply mt-20 py-12 max-sm:mt-8;
+  @apply mt-20 py-12 sm:mt-8;
 
   h2 {
     @apply text-[30px] leading-[36px] font-black text-white capitalize;
@@ -217,7 +249,7 @@
     @apply flex flex-col gap-5;
 
     .__video {
-      @apply relative h-[335px] w-full max-sm:h-[162px];
+      @apply relative h-[335px] w-full sm:h-[162px];
 
       img {
         @apply w-full h-full object-cover;
@@ -227,7 +259,7 @@
         @apply absolute inset-0 flex items-center justify-center;
 
         svg {
-          @apply w-[70px] h-[70px] max-sm:w-[50px] max-sm:h-[50px] text-white;
+          @apply w-[70px] h-[70px] sm:w-[50px] sm:h-[50px] text-white;
         }
       }
     }
@@ -264,7 +296,7 @@
         @apply flex gap-5 items-center;
 
         img {
-          @apply w-[185px] h-[95px] max-sm:w-[105px] max-sm:h-[78px] object-cover;
+          @apply w-[185px] h-[95px] sm:w-[105px] sm:h-[78px] object-cover;
         }
         .__content {
           @apply flex flex-col flex-1 gap-2;

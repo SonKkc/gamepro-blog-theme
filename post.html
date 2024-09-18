@@ -15,6 +15,7 @@
 <body>
     <!--Header-->
     <header x-data="{nav_mobile: false}" class="header z-20">
+        <!--header-->
         <div class="logo">
             <img src="./public/images/Vector 1.png" alt="" class="">
             <div class="__container">
@@ -28,30 +29,29 @@
         </div>
         <!--nav desktop-->
         <div class="nav_desktop">
-            <ul class="__list">
-                <li class="-item"><a href="#" class="__link">Home</a></li>
-                <li class="-item"><a href="#" class="__link">Feature</a></li>
-                <li class="-item"><a href="#" class="__link">About Us</a></li>
-                <li class="-item"><a href="#" class="__link">News</a></li>
-                <li class="-item"><a href="#" class="__link">Store</a></li>
-            </ul>
-            <div class="__search">
-                <input type="text" class="-input">
-                <button class="-btn">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.875 13.875L10.7938 10.7938M12.4583 6.79167C12.4583 9.92128 9.92128 12.4583 6.79167 12.4583C3.66205 12.4583 1.125 9.92128 1.125 6.79167C1.125 3.66205 3.66205 1.125 6.79167 1.125C9.92128 1.125 12.4583 3.66205 12.4583 6.79167Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+            <div class="__list">
+                <a href="/" class="-item">Home</a>
+                <a href="/category.html" class="-item">Feature</a>
+                <a href="/post.html" class="-item">About Us</a>
+                <a href="/" class="-item">News</a>
+                <a href="/" class="-item">Store</a>
             </div>
         </div>
-
+        <!--search-->
+        <div class="__search">
+            <input type="text" class="-input">
+            <button class="-btn">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.875 13.875L10.7938 10.7938M12.4583 6.79167C12.4583 9.92128 9.92128 12.4583 6.79167 12.4583C3.66205 12.4583 1.125 9.92128 1.125 6.79167C1.125 3.66205 3.66205 1.125 6.79167 1.125C9.92128 1.125 12.4583 3.66205 12.4583 6.79167Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
         <!--nav mobile-->
         <div @click="nav_mobile = true" class="open-nav_mobile">
             <svg class="w-10 h-10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
               </svg>              
         </div>
-
         <!--nav mobile content-->
         <div x-cloak class="nav__sidebar" 
             x-show="nav_mobile"
@@ -60,68 +60,181 @@
                 x-transition:leave="transition ease-in-out duration-300 transform"
                 x-transition:leave-start="translate-y-0" x-transition:leave-end=" -translate-y-full"
         >
-        <div class="__container">
-            <div class="__logo">
-                <div class="__name">
-                    <svg  viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.689 0.510308C24.4992 0.508691 24.3098 0.508902 24.121 0.51073C22.1794 0.530066 20.2974 0.732426 18.4915 1.17321C14.392 2.1739 10.662 4.37384 7.39569 8.51208C7.70607 9.3031 8.10866 10.0665 8.61684 10.7749L7.50929 11.527C5.78186 9.11902 5.15792 6.24865 5.21515 3.6267C1.07939 8.61917 1.0241 14.2072 3.10897 18.4746C5.37327 23.1094 10.1199 26.0878 15.0261 24.9656C19.0508 22.96 22.1205 19.1103 22.7018 12.7036L24.0473 12.8191C23.4268 19.657 19.9766 24.01 15.5139 26.1967L15.5154 26.2024C15.5074 26.2045 15.4993 26.2061 15.4912 26.208C15.2544 26.3237 15.0146 26.4337 14.7722 26.537C10.3654 28.4186 5.16102 28.3557 0.656128 26.8734C1.04203 27.6353 1.78022 28.5282 2.85062 29.3881C4.47703 30.6947 6.78042 31.9313 9.35958 32.7308C14.4683 34.314 20.5673 34.2079 24.998 29.9172C25.749 26.6022 26.1723 22.9303 26.1285 20.6239L27.4789 20.5996C27.5344 23.518 26.944 28.1279 25.8757 31.9579C29.71 27.6479 31.5175 23.6938 31.9557 20.2937C32.466 16.3344 31.1561 13.0962 28.9458 10.769C26.7356 8.44184 23.6064 7.04993 20.5244 6.89454C17.4424 6.73929 14.4331 7.78962 12.314 10.3543V10.3545C10.7827 12.2079 10.2165 13.6779 10.1937 14.6815C10.1711 15.685 10.5963 16.2591 11.3182 16.6287C12.7622 17.3679 15.5814 16.8981 17.2854 14.773V14.7728C18.1897 13.645 18.4661 12.8059 18.4546 12.3453C18.4432 11.8848 18.2819 11.7357 17.9051 11.6139C17.1518 11.3704 15.4558 11.8327 14.5578 13.3237L13.3926 12.6593C14.5816 10.6854 16.7256 9.84788 18.3311 10.3671C19.1338 10.6265 19.7817 11.3745 19.8049 12.3138C19.8281 13.253 19.3645 14.3163 18.3502 15.5812C16.2761 18.168 12.9041 18.9254 10.6893 17.7917C9.58202 17.2249 8.81116 16.0876 8.84368 14.6526C8.8762 13.2177 9.61663 11.5221 11.2615 9.53119C13.6622 6.6256 17.1461 5.40877 20.5942 5.58258C21.2137 5.61373 21.8328 5.68967 22.446 5.80688C23.8196 3.36795 26.0977 1.75828 28.7528 0.771589C27.3747 0.613879 26.0184 0.520855 24.6891 0.510168L24.689 0.510308Z" fill="#FCFCFC"/>
-                        </svg>
-                    <p>gamepro</p>
+            <div class="__container">
+                <div class="__logo">
+                    <div class="__name">
+                        <svg  viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24.689 0.510308C24.4992 0.508691 24.3098 0.508902 24.121 0.51073C22.1794 0.530066 20.2974 0.732426 18.4915 1.17321C14.392 2.1739 10.662 4.37384 7.39569 8.51208C7.70607 9.3031 8.10866 10.0665 8.61684 10.7749L7.50929 11.527C5.78186 9.11902 5.15792 6.24865 5.21515 3.6267C1.07939 8.61917 1.0241 14.2072 3.10897 18.4746C5.37327 23.1094 10.1199 26.0878 15.0261 24.9656C19.0508 22.96 22.1205 19.1103 22.7018 12.7036L24.0473 12.8191C23.4268 19.657 19.9766 24.01 15.5139 26.1967L15.5154 26.2024C15.5074 26.2045 15.4993 26.2061 15.4912 26.208C15.2544 26.3237 15.0146 26.4337 14.7722 26.537C10.3654 28.4186 5.16102 28.3557 0.656128 26.8734C1.04203 27.6353 1.78022 28.5282 2.85062 29.3881C4.47703 30.6947 6.78042 31.9313 9.35958 32.7308C14.4683 34.314 20.5673 34.2079 24.998 29.9172C25.749 26.6022 26.1723 22.9303 26.1285 20.6239L27.4789 20.5996C27.5344 23.518 26.944 28.1279 25.8757 31.9579C29.71 27.6479 31.5175 23.6938 31.9557 20.2937C32.466 16.3344 31.1561 13.0962 28.9458 10.769C26.7356 8.44184 23.6064 7.04993 20.5244 6.89454C17.4424 6.73929 14.4331 7.78962 12.314 10.3543V10.3545C10.7827 12.2079 10.2165 13.6779 10.1937 14.6815C10.1711 15.685 10.5963 16.2591 11.3182 16.6287C12.7622 17.3679 15.5814 16.8981 17.2854 14.773V14.7728C18.1897 13.645 18.4661 12.8059 18.4546 12.3453C18.4432 11.8848 18.2819 11.7357 17.9051 11.6139C17.1518 11.3704 15.4558 11.8327 14.5578 13.3237L13.3926 12.6593C14.5816 10.6854 16.7256 9.84788 18.3311 10.3671C19.1338 10.6265 19.7817 11.3745 19.8049 12.3138C19.8281 13.253 19.3645 14.3163 18.3502 15.5812C16.2761 18.168 12.9041 18.9254 10.6893 17.7917C9.58202 17.2249 8.81116 16.0876 8.84368 14.6526C8.8762 13.2177 9.61663 11.5221 11.2615 9.53119C13.6622 6.6256 17.1461 5.40877 20.5942 5.58258C21.2137 5.61373 21.8328 5.68967 22.446 5.80688C23.8196 3.36795 26.0977 1.75828 28.7528 0.771589C27.3747 0.613879 26.0184 0.520855 24.6891 0.510168L24.689 0.510308Z" fill="#FCFCFC"/>
+                            </svg>
+                        <p>gamepro</p>
+                    </div>
+                    <button class="-btn_exit" @click="nav_mobile = false">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                        
+                    </button>
                 </div>
-                <button class="-btn_exit" @click="nav_mobile = false">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>                        
-                </button>
-            </div>
 
-            <div class="__navbar">
-                <ul class="__list">
-                    <li class="-item"><a href="#" class="__link">Home</a></li>
-                    <li class="-item"><a href="#" class="__link">Feature</a></li>
-                    <li class="-item"><a href="#" class="__link">About Us</a></li>
-                    <li class="-item"><a href="#" class="__link">News</a></li>
-                    <li class="-item"><a href="#" class="__link">Store</a></li>
-                </ul>
-            </div>
+                <div class="__navbar">
+                    <ul class="__list">
+                        <li class="-item"><a href="#" class="__link">Home</a></li>
+                        <li class="-item"><a href="#" class="__link">Feature</a></li>
+                        <li class="-item"><a href="#" class="__link">About Us</a></li>
+                        <li class="-item"><a href="#" class="__link">News</a></li>
+                        <li class="-item"><a href="#" class="__link">Store</a></li>
+                    </ul>
+                </div>
 
-            <div class="__search_bar">
-                <input type="text" class="-input" placeholder="Search">
-                <button class="-btn_search">
-                    <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-                    </svg>                                           
-                </button>
+                <div class="__search_bar">
+                    <input type="text" class="-input" placeholder="Search">
+                    <button class="-btn_search">
+                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                        </svg>                                           
+                    </button>
+                </div>
             </div>
         </div>
-        
-    </div>
     </header>
 
-    <!--hero-->
-    <div class="hero">
-        <img src="./public/images/hero.png" alt="" class="">
-        <div class="__content">
-            <h2 class="-title">the world of games</h2>
-            <p class="-text">gameplay, reviews, trends</p>
-        </div>
-    </div>
 
     <!--main-->
     <div class="main">
-        <div class="my_container section_content">
+        <div class="my_container">
             <div class="__breadcrumb">
-                
+                <ul class="__list">
+                    <li class="item"></li>
+                </ul>
             </div>
-            <div class="__left_content post">
-                <div class="-post_content">
+            <div class="section_content">
+                <div class="__left_content post">
+                    <div class="-title">
+                        <p>League of Legends - Aurora the New Champion</p>
+                        <div class="__info">
+                            <p>01.08.2024</p>
+                            <div class="base-flex gap-1">
+                                <svg width="16" height="16" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.75 7.75C11.75 8.05942 11.6271 8.35616 11.4083 8.57496C11.1895 8.79375 10.8928 8.91667 10.5833 8.91667H3.58333L1.25 11.25V1.91667C1.25 1.60725 1.37292 1.3105 1.59171 1.09171C1.8105 0.872916 2.10725 0.75 2.41667 0.75H10.5833C10.8928 0.75 11.1895 0.872916 11.4083 1.09171C11.6271 1.3105 11.75 1.60725 11.75 1.91667V7.75Z" stroke="black" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            <span>21</span>
+                            </div>
+                            <div class="base-flex gap-1">
+                                <svg width="16" height="16" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.6567 1.68916C12.3587 1.39108 12.005 1.15462 11.6156 0.993296C11.2263 0.831968 10.809 0.748932 10.3875 0.748932C9.96605 0.748932 9.54873 0.831968 9.15937 0.993296C8.77002 1.15462 8.41627 1.39108 8.11833 1.68916L7.5 2.3075L6.88167 1.68916C6.27984 1.08734 5.4636 0.749244 4.6125 0.749244C3.7614 0.749244 2.94515 1.08734 2.34333 1.68916C1.74151 2.29098 1.40341 3.10723 1.40341 3.95833C1.40341 4.80943 1.74151 5.62568 2.34333 6.2275L7.5 11.3842L12.6567 6.2275C12.9547 5.92956 13.1912 5.57581 13.3525 5.18645C13.5139 4.7971 13.5969 4.37978 13.5969 3.95833C13.5969 3.53688 13.5139 3.11956 13.3525 2.73021C13.1912 2.34086 12.9547 1.9871 12.6567 1.68916Z" stroke="black" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                <span>69</span>
+                            </div>
+                        </div>
 
+                        <img src="./public/images/post-1.png" alt="" class="">
+                    </div>
+                    <div class="-post_content">
+                        <h1>Recently, Riot officially launched it’s 168th champion in update 14.14</h1>
+                        <h2>1. Aurora, six years in the making</h2>
+                        <p>Six years, yes, six years is how long Riot has spent developing this new cute, somewhat innocent, and surprising mage. Although she has emerged in various forms over those six years, like Sylas, Yone, and more, Aurora is finally coming to the Rift as her own champion.
+                            Aurora is a new Vastaya, a popular animal-like race in the world of League of Legends, alongside characters like Sett, Ahri, Xayah, and Rakan. But Aurora is unique within this group in multiple ways. She is the first Vastaya from the cold north of League, the Freljord, and the first to be inspired by a rabbit, making her a true bunny girl. This, according to Elyse Lemoine, Aurora's writer, is particularly popular.</p>
+                        <blockquote>“Born to a vastayan Bryni tribe, in the Freljordian village Aamu, Aurora grew up with the unique ability to see the veil between the spirit and material realms. Aurora struggled to connect with her peers, instead finding companionship with nearby spirits. Determined to learn more about the spirit realm, Aurora left her village to travel across the Freljord.”</blockquote>
+                        <p>Besides being a bunny girl, Aurora also symbolizes more representation in League of Legends. She is intended to be a clear representative of autism in League of Legends. "We didn't just want to capture the typical autism experiences many of us have had," Lemoine explained. "But the most fundamental aspect of autism. That is how our brains work—how we see the world. It doesn't align with others' expectations. And that's really what we want to show with Aurora. She shouldn't meet expectations; she should set new ones."</p>
+                        <h2>2. Aurora's abilities</h2>
+                        <img src="./public/images/post-2.png" alt="">
+                        <ul>
+                            <li><span>Spirit Abjuration (Passive)</span>  – Aurora’s spells and attacks exorcise spirits from the enemies she damages. Exorcised spirits follow Aurora around, healing her and granting her bonus movement speed</li>
+                            <li><span>Ghostly Visage (Q)</span> – Aurora sends a ghostly rabbit spirit in a target direction, dealing magic damage to enemies it passes through. The spirit then returns to Aurora, dealing magic damage to enemies it passes through again.</li>
+                            <li><span>Veil of the Spirits (W)</span> – Aurora creates a protective barrier of spirits around her, granting her a shield and bonus movement speed. The barrier explodes after a short duration, dealing magic damage to enemies around her.</li>
+                            <li><span>Phantom Leap (E)</span> – Aurora dashes to a target location, dealing magic damage to enemies she passes through. If Aurora hits an enemy champion, she can cast Phantom Leap again within a short duration.</li>
+                            <li><span>Haunting Echoes (R)</span> – Aurora summons a massive spirit rabbit that charges forward, dealing magic damage to enemies it passes through. The rabbit then returns to Aurora, dealing magic damage to enemies it passes through again.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+    
+                <div class="__right_content">
+                    <div class="__upcoming_games">
+                        <h2>Related News</h2>
+                        <div class="__list">
+                            <div class="-item">
+                                <img src="./public/images/upcoming-1.png" alt="" class="">
+                                <div class="__content">
+                                    <a href="#">Avatar: Frontiers of Pandora preview</a>
+                                    <div class="__info">
+                                        <p>01.08.2024</p>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="__right_content">
+                            <div class="-item">
+                                <img src="./public/images/upcoming-1.png" alt="" class="">
+                                <div class="__content">
+                                    <a href="#">Avatar: Frontiers of Pandora preview</a>
+                                    <div class="__info">
+                                        <p>01.08.2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="-item">
+                                <img src="./public/images/upcoming-1.png" alt="" class="">
+                                <div class="__content">
+                                    <a href="#">Avatar: Frontiers of Pandora preview</a>
+                                    <div class="__info">
+                                        <p>01.08.2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="-item">
+                                <img src="./public/images/upcoming-1.png" alt="" class="">
+                                <div class="__content">
+                                    <a href="#">Avatar: Frontiers of Pandora preview</a>
+                                    <div class="__info">
+                                        <p>01.08.2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="-item">
+                                <img src="./public/images/upcoming-1.png" alt="" class="">
+                                <div class="__content">
+                                    <a href="#">Avatar: Frontiers of Pandora preview</a>
+                                    <div class="__info">
+                                        <p>01.08.2024</p>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="view_more">
+                                <a href="#">View more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="-social_media base-flex mt-10">
+                        <a href="#" class="-item bg-[#71BBFF]">
+                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M4.09664 0H0L4.8572 7.06953L0.310717 13H2.41132L5.84998 8.51461L8.90336 12.9588H13L8.00168 5.68381L8.01053 5.69636L12.3142 0.0825854H10.2136L7.01759 4.25145L4.09664 0ZM2.26127 1.2381H3.53661L10.7387 11.7206H9.46339L2.26127 1.2381Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="#" class="-item bg-[#4062A4]">
+                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.94225 7.55769V13H2.2427V7.55769H0V5.35096H2.2427V4.54808C2.2427 1.56731 3.58728 0 6.43219 0C7.30435 0 7.52239 0.129808 8 0.235577V2.41827C7.46528 2.33173 7.31473 2.28365 6.75925 2.28365C6.09993 2.28365 5.74692 2.45673 5.42505 2.79808C5.10318 3.13942 4.94225 3.73077 4.94225 4.57692V5.35577H8L7.17975 7.5625H4.94225V7.55769Z"
+                                    fill="white" />
+                            </svg>
+
+                        </a>
+                        <a href="#" class="-item bg-[#F43B3B]">
+                            <svg width="15" height="13" viewBox="0 0 15 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.5566 13H2.44339C1.09022 13 0 11.4615 0 9.56923V3.43077C0 1.53077 1.09569 0 2.44339 0H12.5566C13.9098 0 15 1.53846 15 3.43077V9.56923C15.0055 11.4692 13.9098 13 12.5566 13Z"
+                                    fill="white" />
+                                <path d="M10.1532 6.40391L5.89888 3.25006V9.55775L10.1532 6.40391Z" fill="black" />
+                            </svg>
+
+                        </a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

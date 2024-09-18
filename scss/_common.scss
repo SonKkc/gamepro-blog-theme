@@ -10,11 +10,11 @@ body {
 }
 
 .main{
-    @apply my-10 max-sm:mt-6;
+    @apply my-10 sm:mt-6;
 }
 
 .my_container {
-    @apply max-w-[904px] mx-auto max-xs:px-[20px] max-xs2:px-[50px];
+    @apply max-w-[904px] mx-auto sm:px-[60px] md:px-[50px];
 }
 
 .base-flex{
@@ -22,9 +22,9 @@ body {
 }
 
 .section_content{
-    @apply grid grid-cols-3 max-sm:grid-cols-1 gap-5 mt-20 max-sm:mt-8;
+    @apply grid grid-cols-3 sm:grid-cols-1 gap-5 mt-20 sm:mt-8;
     .__left_content{
-        @apply col-span-2 max-sm:col-span-1;
+        @apply col-span-2 sm:col-span-1;
     }
 
     .__right_content{
@@ -68,7 +68,7 @@ body {
     @apply flex items-center;
 
     a{
-        @apply text-[8px] leading-[9.72px] font-medium uppercase;
+        @apply text-[8px] leading-[10px] font-medium uppercase flex items-center gap-2 after:block after:w-[100px] after:h-[1px] after:bg-black;
     }
 }
 
@@ -113,7 +113,7 @@ body {
 }
 
 .-newsletter{
-    @apply w-[288px] h-[162px] max-sm:w-full rounded relative;
+    @apply w-[288px] h-[162px] sm:w-full rounded relative;
 
     img{
         @apply w-full h-full object-cover rounded relative;

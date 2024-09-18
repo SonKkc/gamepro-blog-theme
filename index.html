@@ -11,13 +11,25 @@
 
 <style>
     [x-cloak] { display: none !important; }
+
+    .logo::after{
+        content: '';
+            position: absolute;
+            right: -30px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: solid #333B7C;
+            border-top: solid transparent;
+            border-bottom: solid transparent;
+    }
 </style>
 
 <body>
     <!--Header-->
     <header x-data="{nav_mobile: false}" class="header z-20">
+        <!--header-->
         <div class="logo">
-            <img src="./public/images/Vector 1.png" alt="" class="">
             <div class="__container">
                 <div class="__text">
                     <svg  viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,30 +41,29 @@
         </div>
         <!--nav desktop-->
         <div class="nav_desktop">
-            <ul class="__list">
-                <li class="-item"><a href="#" class="__link">Home</a></li>
-                <li class="-item"><a href="#" class="__link">Feature</a></li>
-                <li class="-item"><a href="#" class="__link">About Us</a></li>
-                <li class="-item"><a href="#" class="__link">News</a></li>
-                <li class="-item"><a href="#" class="__link">Store</a></li>
-            </ul>
-            <div class="__search">
-                <input type="text" class="-input">
-                <button class="-btn">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.875 13.875L10.7938 10.7938M12.4583 6.79167C12.4583 9.92128 9.92128 12.4583 6.79167 12.4583C3.66205 12.4583 1.125 9.92128 1.125 6.79167C1.125 3.66205 3.66205 1.125 6.79167 1.125C9.92128 1.125 12.4583 3.66205 12.4583 6.79167Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+            <div class="__list">
+                <a href="/" class="-item">Home</a>
+                <a href="/category.html" class="-item">Feature</a>
+                <a href="/post.html" class="-item">About Us</a>
+                <a href="/" class="-item">News</a>
+                <a href="/" class="-item">Store</a>
             </div>
         </div>
-
+        <!--search-->
+        <div class="__search">
+            <input type="text" class="-input">
+            <button class="-btn">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.875 13.875L10.7938 10.7938M12.4583 6.79167C12.4583 9.92128 9.92128 12.4583 6.79167 12.4583C3.66205 12.4583 1.125 9.92128 1.125 6.79167C1.125 3.66205 3.66205 1.125 6.79167 1.125C9.92128 1.125 12.4583 3.66205 12.4583 6.79167Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
         <!--nav mobile-->
         <div @click="nav_mobile = true" class="open-nav_mobile">
             <svg class="w-10 h-10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
               </svg>              
         </div>
-
         <!--nav mobile content-->
         <div x-cloak class="nav__sidebar" 
             x-show="nav_mobile"
@@ -61,43 +72,42 @@
                 x-transition:leave="transition ease-in-out duration-300 transform"
                 x-transition:leave-start="translate-y-0" x-transition:leave-end=" -translate-y-full"
         >
-        <div class="__container">
-            <div class="__logo">
-                <div class="__name">
-                    <svg  viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.689 0.510308C24.4992 0.508691 24.3098 0.508902 24.121 0.51073C22.1794 0.530066 20.2974 0.732426 18.4915 1.17321C14.392 2.1739 10.662 4.37384 7.39569 8.51208C7.70607 9.3031 8.10866 10.0665 8.61684 10.7749L7.50929 11.527C5.78186 9.11902 5.15792 6.24865 5.21515 3.6267C1.07939 8.61917 1.0241 14.2072 3.10897 18.4746C5.37327 23.1094 10.1199 26.0878 15.0261 24.9656C19.0508 22.96 22.1205 19.1103 22.7018 12.7036L24.0473 12.8191C23.4268 19.657 19.9766 24.01 15.5139 26.1967L15.5154 26.2024C15.5074 26.2045 15.4993 26.2061 15.4912 26.208C15.2544 26.3237 15.0146 26.4337 14.7722 26.537C10.3654 28.4186 5.16102 28.3557 0.656128 26.8734C1.04203 27.6353 1.78022 28.5282 2.85062 29.3881C4.47703 30.6947 6.78042 31.9313 9.35958 32.7308C14.4683 34.314 20.5673 34.2079 24.998 29.9172C25.749 26.6022 26.1723 22.9303 26.1285 20.6239L27.4789 20.5996C27.5344 23.518 26.944 28.1279 25.8757 31.9579C29.71 27.6479 31.5175 23.6938 31.9557 20.2937C32.466 16.3344 31.1561 13.0962 28.9458 10.769C26.7356 8.44184 23.6064 7.04993 20.5244 6.89454C17.4424 6.73929 14.4331 7.78962 12.314 10.3543V10.3545C10.7827 12.2079 10.2165 13.6779 10.1937 14.6815C10.1711 15.685 10.5963 16.2591 11.3182 16.6287C12.7622 17.3679 15.5814 16.8981 17.2854 14.773V14.7728C18.1897 13.645 18.4661 12.8059 18.4546 12.3453C18.4432 11.8848 18.2819 11.7357 17.9051 11.6139C17.1518 11.3704 15.4558 11.8327 14.5578 13.3237L13.3926 12.6593C14.5816 10.6854 16.7256 9.84788 18.3311 10.3671C19.1338 10.6265 19.7817 11.3745 19.8049 12.3138C19.8281 13.253 19.3645 14.3163 18.3502 15.5812C16.2761 18.168 12.9041 18.9254 10.6893 17.7917C9.58202 17.2249 8.81116 16.0876 8.84368 14.6526C8.8762 13.2177 9.61663 11.5221 11.2615 9.53119C13.6622 6.6256 17.1461 5.40877 20.5942 5.58258C21.2137 5.61373 21.8328 5.68967 22.446 5.80688C23.8196 3.36795 26.0977 1.75828 28.7528 0.771589C27.3747 0.613879 26.0184 0.520855 24.6891 0.510168L24.689 0.510308Z" fill="#FCFCFC"/>
-                        </svg>
-                    <p>gamepro</p>
+            <div class="__container">
+                <div class="__logo">
+                    <div class="__name">
+                        <svg  viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24.689 0.510308C24.4992 0.508691 24.3098 0.508902 24.121 0.51073C22.1794 0.530066 20.2974 0.732426 18.4915 1.17321C14.392 2.1739 10.662 4.37384 7.39569 8.51208C7.70607 9.3031 8.10866 10.0665 8.61684 10.7749L7.50929 11.527C5.78186 9.11902 5.15792 6.24865 5.21515 3.6267C1.07939 8.61917 1.0241 14.2072 3.10897 18.4746C5.37327 23.1094 10.1199 26.0878 15.0261 24.9656C19.0508 22.96 22.1205 19.1103 22.7018 12.7036L24.0473 12.8191C23.4268 19.657 19.9766 24.01 15.5139 26.1967L15.5154 26.2024C15.5074 26.2045 15.4993 26.2061 15.4912 26.208C15.2544 26.3237 15.0146 26.4337 14.7722 26.537C10.3654 28.4186 5.16102 28.3557 0.656128 26.8734C1.04203 27.6353 1.78022 28.5282 2.85062 29.3881C4.47703 30.6947 6.78042 31.9313 9.35958 32.7308C14.4683 34.314 20.5673 34.2079 24.998 29.9172C25.749 26.6022 26.1723 22.9303 26.1285 20.6239L27.4789 20.5996C27.5344 23.518 26.944 28.1279 25.8757 31.9579C29.71 27.6479 31.5175 23.6938 31.9557 20.2937C32.466 16.3344 31.1561 13.0962 28.9458 10.769C26.7356 8.44184 23.6064 7.04993 20.5244 6.89454C17.4424 6.73929 14.4331 7.78962 12.314 10.3543V10.3545C10.7827 12.2079 10.2165 13.6779 10.1937 14.6815C10.1711 15.685 10.5963 16.2591 11.3182 16.6287C12.7622 17.3679 15.5814 16.8981 17.2854 14.773V14.7728C18.1897 13.645 18.4661 12.8059 18.4546 12.3453C18.4432 11.8848 18.2819 11.7357 17.9051 11.6139C17.1518 11.3704 15.4558 11.8327 14.5578 13.3237L13.3926 12.6593C14.5816 10.6854 16.7256 9.84788 18.3311 10.3671C19.1338 10.6265 19.7817 11.3745 19.8049 12.3138C19.8281 13.253 19.3645 14.3163 18.3502 15.5812C16.2761 18.168 12.9041 18.9254 10.6893 17.7917C9.58202 17.2249 8.81116 16.0876 8.84368 14.6526C8.8762 13.2177 9.61663 11.5221 11.2615 9.53119C13.6622 6.6256 17.1461 5.40877 20.5942 5.58258C21.2137 5.61373 21.8328 5.68967 22.446 5.80688C23.8196 3.36795 26.0977 1.75828 28.7528 0.771589C27.3747 0.613879 26.0184 0.520855 24.6891 0.510168L24.689 0.510308Z" fill="#FCFCFC"/>
+                            </svg>
+                        <p>gamepro</p>
+                    </div>
+                    <button class="-btn_exit" @click="nav_mobile = false">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                        
+                    </button>
                 </div>
-                <button class="-btn_exit" @click="nav_mobile = false">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>                        
-                </button>
-            </div>
 
-            <div class="__navbar">
-                <ul class="__list">
-                    <li class="-item"><a href="#" class="__link">Home</a></li>
-                    <li class="-item"><a href="#" class="__link">Feature</a></li>
-                    <li class="-item"><a href="#" class="__link">About Us</a></li>
-                    <li class="-item"><a href="#" class="__link">News</a></li>
-                    <li class="-item"><a href="#" class="__link">Store</a></li>
-                </ul>
-            </div>
+                <div class="__navbar">
+                    <ul class="__list">
+                        <li class="-item"><a href="#" class="__link">Home</a></li>
+                        <li class="-item"><a href="#" class="__link">Feature</a></li>
+                        <li class="-item"><a href="#" class="__link">About Us</a></li>
+                        <li class="-item"><a href="#" class="__link">News</a></li>
+                        <li class="-item"><a href="#" class="__link">Store</a></li>
+                    </ul>
+                </div>
 
-            <div class="__search_bar">
-                <input type="text" class="-input" placeholder="Search">
-                <button class="-btn_search">
-                    <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-                    </svg>                                           
-                </button>
+                <div class="__search_bar">
+                    <input type="text" class="-input" placeholder="Search">
+                    <button class="-btn_search">
+                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                        </svg>                                           
+                    </button>
+                </div>
             </div>
         </div>
-        
-    </div>
     </header>
 
     <!--hero-->
@@ -114,24 +124,108 @@
 
         <!--top3-->
         <div class="top3 my_container">
-            <div class="__item">
+            <a href="/post.html" class="__item">
                 <img src="./images/top-1.png" alt="" class="">
                 <div class="__content">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.35568 8.44946L1.36751 12.4004C1.25106 12.5159 1.15863 12.6533 1.09555 12.8047C1.03247 12.9561 1 13.1185 1 13.2825C1 13.4465 1.03247 13.6089 1.09555 13.7603C1.15863 13.9117 1.25106 14.0491 1.36751 14.1646L4.00144 16.7985C4.11694 16.915 4.25435 17.0074 4.40575 17.0705C4.55715 17.1336 4.71954 17.166 4.88356 17.166C5.04757 17.166 5.20996 17.1336 5.36136 17.0705C5.51276 17.0074 5.65018 16.915 5.76568 16.7985L9.71658 12.8104" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.8102 9.71658L16.7611 5.76568C16.8775 5.65018 16.97 5.51276 17.033 5.36136C17.0961 5.20996 17.1286 5.04757 17.1286 4.88356C17.1286 4.71954 17.0961 4.55715 17.033 4.40575C16.97 4.25435 16.8775 4.11694 16.7611 4.00144L14.1644 1.36751C14.0489 1.25106 13.9115 1.15863 13.7601 1.09555C13.6087 1.03247 13.4463 1 13.2823 1C13.1183 1 12.9559 1.03247 12.8045 1.09555C12.6531 1.15863 12.5157 1.25106 12.4002 1.36751L8.44928 5.35568" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.5678 6.59814L6.59811 11.5678" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
                     <h2> Game of the Month Starfield</h2>
+                    <div class="__info">
+                        <span class="base-flex gap-1">
+                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 8.25C11.25 8.55942 11.1271 8.85616 10.9083 9.07496C10.6895 9.29375 10.3928 9.41667 10.0833 9.41667H3.08333L0.75 11.75V2.41667C0.75 2.10725 0.872916 1.8105 1.09171 1.59171C1.3105 1.37292 1.60725 1.25 1.91667 1.25H10.0833C10.3928 1.25 10.6895 1.37292 10.9083 1.59171C11.1271 1.8105 11.25 2.10725 11.25 2.41667V8.25Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            21
+                        </span>
+                        <span class="base-flex gap-1">
+                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.1567 2.18919C11.8587 1.89111 11.505 1.65465 11.1156 1.49333C10.7263 1.332 10.309 1.24896 9.8875 1.24896C9.46605 1.24896 9.04873 1.332 8.65937 1.49333C8.27002 1.65465 7.91627 1.89111 7.61833 2.18919L7 2.80753L6.38167 2.18919C5.77984 1.58737 4.9636 1.24927 4.1125 1.24927C3.2614 1.24927 2.44515 1.58737 1.84333 2.18919C1.24151 2.79101 0.903412 3.60726 0.903412 4.45836C0.903412 5.30946 1.24151 6.12571 1.84333 6.72753L7 11.8842L12.1567 6.72753C12.4547 6.42959 12.6912 6.07584 12.8525 5.68648C13.0139 5.29713 13.0969 4.87981 13.0969 4.45836C13.0969 4.03691 13.0139 3.61959 12.8525 3.23024C12.6912 2.84089 12.4547 2.48714 12.1567 2.18919Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+
+                            69
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="__item">
+            </a>
+            <a href="/post.html" class="__item">
                 <img src="./images/top-1.png" alt="" class="">
                 <div class="__content">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.35568 8.44946L1.36751 12.4004C1.25106 12.5159 1.15863 12.6533 1.09555 12.8047C1.03247 12.9561 1 13.1185 1 13.2825C1 13.4465 1.03247 13.6089 1.09555 13.7603C1.15863 13.9117 1.25106 14.0491 1.36751 14.1646L4.00144 16.7985C4.11694 16.915 4.25435 17.0074 4.40575 17.0705C4.55715 17.1336 4.71954 17.166 4.88356 17.166C5.04757 17.166 5.20996 17.1336 5.36136 17.0705C5.51276 17.0074 5.65018 16.915 5.76568 16.7985L9.71658 12.8104" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.8102 9.71658L16.7611 5.76568C16.8775 5.65018 16.97 5.51276 17.033 5.36136C17.0961 5.20996 17.1286 5.04757 17.1286 4.88356C17.1286 4.71954 17.0961 4.55715 17.033 4.40575C16.97 4.25435 16.8775 4.11694 16.7611 4.00144L14.1644 1.36751C14.0489 1.25106 13.9115 1.15863 13.7601 1.09555C13.6087 1.03247 13.4463 1 13.2823 1C13.1183 1 12.9559 1.03247 12.8045 1.09555C12.6531 1.15863 12.5157 1.25106 12.4002 1.36751L8.44928 5.35568" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.5678 6.59814L6.59811 11.5678" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
                     <h2> Game of the Month Starfield</h2>
+                    <div class="__info">
+                        <span class="base-flex gap-1">
+                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 8.25C11.25 8.55942 11.1271 8.85616 10.9083 9.07496C10.6895 9.29375 10.3928 9.41667 10.0833 9.41667H3.08333L0.75 11.75V2.41667C0.75 2.10725 0.872916 1.8105 1.09171 1.59171C1.3105 1.37292 1.60725 1.25 1.91667 1.25H10.0833C10.3928 1.25 10.6895 1.37292 10.9083 1.59171C11.1271 1.8105 11.25 2.10725 11.25 2.41667V8.25Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            21
+                        </span>
+                        <span class="base-flex gap-1">
+                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.1567 2.18919C11.8587 1.89111 11.505 1.65465 11.1156 1.49333C10.7263 1.332 10.309 1.24896 9.8875 1.24896C9.46605 1.24896 9.04873 1.332 8.65937 1.49333C8.27002 1.65465 7.91627 1.89111 7.61833 2.18919L7 2.80753L6.38167 2.18919C5.77984 1.58737 4.9636 1.24927 4.1125 1.24927C3.2614 1.24927 2.44515 1.58737 1.84333 2.18919C1.24151 2.79101 0.903412 3.60726 0.903412 4.45836C0.903412 5.30946 1.24151 6.12571 1.84333 6.72753L7 11.8842L12.1567 6.72753C12.4547 6.42959 12.6912 6.07584 12.8525 5.68648C13.0139 5.29713 13.0969 4.87981 13.0969 4.45836C13.0969 4.03691 13.0139 3.61959 12.8525 3.23024C12.6912 2.84089 12.4547 2.48714 12.1567 2.18919Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+
+                            69
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="__item">
+            </a>
+            <a href="/post.html" class="__item">
                 <img src="./images/top-1.png" alt="" class="">
                 <div class="__content">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.35568 8.44946L1.36751 12.4004C1.25106 12.5159 1.15863 12.6533 1.09555 12.8047C1.03247 12.9561 1 13.1185 1 13.2825C1 13.4465 1.03247 13.6089 1.09555 13.7603C1.15863 13.9117 1.25106 14.0491 1.36751 14.1646L4.00144 16.7985C4.11694 16.915 4.25435 17.0074 4.40575 17.0705C4.55715 17.1336 4.71954 17.166 4.88356 17.166C5.04757 17.166 5.20996 17.1336 5.36136 17.0705C5.51276 17.0074 5.65018 16.915 5.76568 16.7985L9.71658 12.8104" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.8102 9.71658L16.7611 5.76568C16.8775 5.65018 16.97 5.51276 17.033 5.36136C17.0961 5.20996 17.1286 5.04757 17.1286 4.88356C17.1286 4.71954 17.0961 4.55715 17.033 4.40575C16.97 4.25435 16.8775 4.11694 16.7611 4.00144L14.1644 1.36751C14.0489 1.25106 13.9115 1.15863 13.7601 1.09555C13.6087 1.03247 13.4463 1 13.2823 1C13.1183 1 12.9559 1.03247 12.8045 1.09555C12.6531 1.15863 12.5157 1.25106 12.4002 1.36751L8.44928 5.35568" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.5678 6.59814L6.59811 11.5678" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
                     <h2> Game of the Month Starfield</h2>
+                    <div class="__info">
+                        <span class="base-flex gap-1">
+                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.25 8.25C11.25 8.55942 11.1271 8.85616 10.9083 9.07496C10.6895 9.29375 10.3928 9.41667 10.0833 9.41667H3.08333L0.75 11.75V2.41667C0.75 2.10725 0.872916 1.8105 1.09171 1.59171C1.3105 1.37292 1.60725 1.25 1.91667 1.25H10.0833C10.3928 1.25 10.6895 1.37292 10.9083 1.59171C11.1271 1.8105 11.25 2.10725 11.25 2.41667V8.25Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            21
+                        </span>
+                        <span class="base-flex gap-1">
+                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.1567 2.18919C11.8587 1.89111 11.505 1.65465 11.1156 1.49333C10.7263 1.332 10.309 1.24896 9.8875 1.24896C9.46605 1.24896 9.04873 1.332 8.65937 1.49333C8.27002 1.65465 7.91627 1.89111 7.61833 2.18919L7 2.80753L6.38167 2.18919C5.77984 1.58737 4.9636 1.24927 4.1125 1.24927C3.2614 1.24927 2.44515 1.58737 1.84333 2.18919C1.24151 2.79101 0.903412 3.60726 0.903412 4.45836C0.903412 5.30946 1.24151 6.12571 1.84333 6.72753L7 11.8842L12.1567 6.72753C12.4547 6.42959 12.6912 6.07584 12.8525 5.68648C13.0139 5.29713 13.0969 4.87981 13.0969 4.45836C13.0969 4.03691 13.0139 3.61959 12.8525 3.23024C12.6912 2.84089 12.4547 2.48714 12.1567 2.18919Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+
+                            69
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!--most view-->
